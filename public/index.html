@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src='/socket.io/socket.io.js'></script>
+     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     <link rel='stylesheet' href='test.css'>
+  </head>
+
+  <body>
+    <h3>Simple chat with socket.io</h3>
+    <div id = 'chatbox'> 
+    </div>
+    
+    <input id='messagebox' placeholder='Enter message'>
+      
+    <script>
+      var socket = io.connect(window.location.hostname);
+      socket.emit('setusername', prompt("Pick a username","Anonymous"));
+
+      function notification_msg(event, str){
+        socket.on(event, function(data){
+          content = data.name + str
+        $('#chatbox').append("<center>" + '<i>' + content + "</i>" + "</center>"+ '</br>');
+        $('#chatbox')[0].scrollTop = $('#chatbox')[0].scrollHeight;
+        })
+      }
+
+      notification_msg('isonline', ' is online');
+      notification_msg('isoffline', ' is offline');
+
+      socket.on('message', function(data){
+        $('#chatbox').append(data.name + ": " + data.message + "</br>");
+        $('#chatbox')[0].scrollTop = $('#chatbox')[0].scrollHeight;
+      });
+
+      $('#messagebox').keypress(function(e){
+        $('#messagebox').focus();
+        if(e.which==13){
+          socket.emit('send', {message: $('#messagebox').val()});
+          $('#messagebox').val('')
+        }
+      })
+    </script>
+    
+    <div id='footer'>
+      <center>
+        <p>Tram Lai's mini-project - Learnbydoing</p>
+      </center>
+    </div>
+  </body>
+</html>
