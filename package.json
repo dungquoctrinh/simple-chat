@@ -7,7 +7,7 @@
     "socket.io": "~0.9.6"
   },
   "engines": {
-    "node": "0.6.x"
+    "node": "4.x"
   },
   "description": "Simple chat with socket.io -------------------------- The app creates an easy way to chat using socket.io api Play with it here: http://simple-chat-socket-io.herokuapp.com",
   "main": "app.js",
