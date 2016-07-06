@@ -14,7 +14,13 @@
       
     <script>
       var socket = io.connect(window.location.hostname);
-      socket.emit('setusername', prompt("Pick a username","Anonymous"));
+      socket.emit('setusername', prompt("Pick a username",randomize_name()));
+
+      //will randomize a username
+      function randomize_name() {
+        var items = ["Saab", "Volvo", "BMW"];
+        return items[Math.floor(Math.random()*items.length)];
+      }
 
       function notification_msg(event, str){
         socket.on(event, function(data){
@@ -43,7 +49,9 @@
     
     <div id='footer'>
       <center>
-      <p></p>
+      <p>Inspired by<a href="https://github.com/tramxme/simple-chat"> Tram Lai's Project</a>. This version is created by
+        <a href="https://github.com/dungquoctrinh">Dung Trinh</a>
+      </p>
       </center>
     </div>
   </body>
