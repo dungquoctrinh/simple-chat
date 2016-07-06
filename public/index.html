@@ -3,10 +3,11 @@
     <script src='/socket.io/socket.io.js'></script>
      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
      <link rel='stylesheet' href='test.css'>
+    <title>Simple Chat Project</title>
   </head>
 
   <body>
-    <h3>Simple chat with socket.io</h3>
+    <center><h3>Simple Chat with Socket.io</h3></center>
     <div id = 'chatbox'> 
     </div>
     
@@ -18,7 +19,15 @@
 
       //will randomize a username
       function randomize_name() {
-        var items = ["Saab", "Volvo", "BMW"];
+        var items = ["alligator", "anteater", "armadillo", "auroch", "axolotl", "badger", "bat",
+          "beaver", "buffalo", "camel", "chameleon", "cheetah", "chipmunk", "chinchilla",
+          "chupacabra", "cormorant", "coyote", "crow", "dingo", "dinosaur",
+          "dolphin", "duck", "elephant", "ferret", "fox", "frog", "giraffe",
+          "gopher", "grizzly", "hedgehog", "hippo", "hyena",
+          "jackal", "ibex", "ifrit", "iguana", "koala", "kraken", "lemur", "leopard", "liger", "llama", "manatee",
+          "mink", "monkey", "narwhal", "nyan cat", "orangutan", "otter", "panda", "penguin", "platypus", "python", "pumpkin",
+          "quagga", "rabbit", "raccoon", "rhino", "sheep", "shrew", "skunk", "squirrel",
+          "turtle", "walrus", "wolf", "wolverine", "wombat"];
         return items[Math.floor(Math.random()*items.length)];
       }
 
@@ -49,8 +58,8 @@
     
     <div id='footer'>
       <center>
-      <p>Inspired by<a href="https://github.com/tramxme/simple-chat"> Tram Lai's Project</a>. This version is created by
-        <a href="https://github.com/dungquoctrinh">Dung Trinh</a>
+      <p>Inspired by Simple Chat Project of<a href="https://github.com/tramxme/simple-chat"> Tram Lai</a>. This version
+        is created by<a href="https://github.com/dungquoctrinh">Dung Trinh</a> using socket.io
       </p>
       </center>
     </div>
