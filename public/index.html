@@ -8,12 +8,17 @@
 
   <body>
     <center><h3>Simple Chat with Socket.io</h3></center>
-    <div id = 'chatbox'> 
+    <!-- this is for the chat box-->
+    <div id = 'chatbox'></div>
+    <!-- nothing in here-->
+    <div>
+      <input id='messagebox' placeholder='Enter message'>
     </div>
-    
-    <input id='messagebox' placeholder='Enter message'>
-      
+    <!-- Button
+    <button type="button">Click Me!</button>
+    -->
     <script>
+      //set up the socket in here
       var socket = io.connect(window.location.hostname);
       socket.emit('setusername', prompt("Pick a username",randomize_name()));
 
@@ -25,9 +30,9 @@
           "dolphin", "duck", "elephant", "ferret", "fox", "frog", "giraffe",
           "gopher", "grizzly", "hedgehog", "hippo", "hyena",
           "jackal", "ibex", "ifrit", "iguana", "koala", "kraken", "lemur", "leopard", "liger", "llama", "manatee",
-          "mink", "monkey", "narwhal", "nyan cat", "orangutan", "otter", "panda", "penguin", "platypus", "python", "pumpkin",
-          "quagga", "rabbit", "raccoon", "rhino", "sheep", "shrew", "skunk", "squirrel",
-          "turtle", "walrus", "wolf", "wolverine", "wombat"];
+          "mink", "monkey", "narwhal", "nyan cat", "orangutan", "otter", "panda", "penguin",
+          "platypus", "python", "pumpkin", "quagga", "rabbit", "raccoon", "rhino", "sheep",
+          "shrew", "skunk", "squirrel", "turtle", "walrus", "wolf", "wolverine", "wombat"];
         return items[Math.floor(Math.random()*items.length)];
       }
 
@@ -49,9 +54,13 @@
         $('#chatbox')[0].scrollTop = $('#chatbox')[0].scrollHeight;
       });
 
-      $('#messagebox').keypress(function(e){
+      //take the key press
+      $('#messagebox').keypress(function(e)
+      {
         $('#messagebox').focus();
-        if(e.which==13){
+        //when key press is "enter" send the message
+        if(e.which==13)
+        {
           socket.emit('send', {message: $('#messagebox').val()});
           $('#messagebox').val('')
         }
@@ -63,6 +72,9 @@
       <p>Inspired by Simple Chat Project of<a href="https://github.com/tramxme/simple-chat"> Tram Lai</a>. This version
         is created by<a href="https://github.com/dungquoctrinh"> Dung Trinh</a> using socket.io
       </p>
+        <form action="https://github.com/dungquoctrinh/simple-chat">
+          <input type="submit" value="Fork Me on Github!">
+        </form>
       </center>
     </div>
   </body>
