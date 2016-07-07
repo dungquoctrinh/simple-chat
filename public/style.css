@@ -3,7 +3,7 @@
   border: 1px solid;
   width: 400px;
   height: 400px;
-  overflow: scroll;
+  overflow-y:scroll;
   word-wrap: normal;
   word-wrap: initial;
   word-wrap: inherit;
