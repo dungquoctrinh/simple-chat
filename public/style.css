@@ -1,18 +1,21 @@
-#chatbox{
+#chatbox
+{
   border: 1px solid;
   width: 400px;
   height: 400px;
   overflow: auto;
 }
 
-#messagebox{
+#messagebox
+{
   margin-top: 10px;
   width: 400px;
   height: 30px;
   overflow: auto;
 }
 
-#footer{
+#footer
+{
   margin-top: 80px;
   border-top: 1px solid;
   position: relative;

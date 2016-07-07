@@ -49,7 +49,8 @@
       notification_msg('isonline', ' is online');
       notification_msg('isoffline', ' is offline');
 
-      socket.on('message', function(data){
+      socket.on('message', function(data)
+      {
         $('#chatbox').append(data.name + ": " + data.message + "</br>");
         $('#chatbox')[0].scrollTop = $('#chatbox')[0].scrollHeight;
       });
@@ -66,10 +67,16 @@
         }
       })
     </script>
-    
+    <!--
+	<div>
+	<audio autoplay="autoplay" controls="controls">
+	     <source src="media/Happy - Cheerful Ukulele Guitar.mp3" />
+	 </audio>
+	</div>
+    -->
     <div id='footer'>
       <center>
-      <p>Inspired by Simple Chat Project of<a href="https://github.com/tramxme/simple-chat"> Tram Lai</a>. This version
+      <p>Inspired by Simple Chat Project by <a href="https://github.com/tramxme/simple-chat">Tram Lai</a>. This version
         is created by<a href="https://github.com/dungquoctrinh"> Dung Trinh</a> using socket.io
       </p>
         <form action="https://github.com/dungquoctrinh/simple-chat">

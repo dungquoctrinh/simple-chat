@@ -20,7 +20,9 @@ io.configure(function () {
 });
   
 
-io.sockets.on('connection', function(socket){
+io.sockets.on('connection', function(socket)
+{
+  //set user name and initial setup
   socket.on("setusername", function(name)
   {
     //TODO: if not name. Set it equal anonymous
@@ -37,14 +39,19 @@ io.sockets.on('connection', function(socket){
     })
   })
 
+  //user send message
   socket.on('send', function(data){
-    socket.get('username', function(err,name){
+    socket.get('username', function(err,name)
+    {
       io.sockets.emit('message', {name: name, message: data.message});
     });
   });
 
-  socket.on('disconnect', function(){
-    socket.get('username', function(err,name){
+  //when user close the tab
+  socket.on('disconnect', function()
+  {
+    socket.get('username', function(err,name)
+    {
       io.sockets.emit('isoffline', {name: name});
     })
   })
