@@ -28,7 +28,7 @@ io.sockets.on('connection', function(socket){
     {
       name = "anonymous";
     }
-
+    //set user name
     socket.set('username', name);
 
     socket.get('username', function(err, name)
