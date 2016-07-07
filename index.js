@@ -28,7 +28,9 @@ io.sockets.on('connection', function(socket){
     {
       name = "anonymous";
     }
+
     socket.set('username', name);
+
     socket.get('username', function(err, name)
     {
       io.sockets.emit('isonline', {name : name})

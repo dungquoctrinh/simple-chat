@@ -31,8 +31,10 @@
         return items[Math.floor(Math.random()*items.length)];
       }
 
-      function notification_msg(event, str){
-        socket.on(event, function(data){
+      function notification_msg(event, str)
+      {
+        socket.on(event, function(data)
+        {
           content = data.name + str
         $('#chatbox').append("<center>" + '<i>' + content + "</i>" + "</center>"+ '</br>');
         $('#chatbox')[0].scrollTop = $('#chatbox')[0].scrollHeight;
