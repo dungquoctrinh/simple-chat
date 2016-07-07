@@ -21,12 +21,19 @@ io.configure(function () {
   
 
 io.sockets.on('connection', function(socket){
-  socket.on("setusername", function(name){
+  socket.on("setusername", function(name)
+  {
+    //TODO: if not name. Set it equal anonymous
+    if(name == null)
+    {
+      name = "anonymous";
+    }
     socket.set('username', name);
-    socket.get('username', function(err, name){
+    socket.get('username', function(err, name)
+    {
       io.sockets.emit('isonline', {name : name})
     })
-    })
+  })
 
   socket.on('send', function(data){
     socket.get('username', function(err,name){
